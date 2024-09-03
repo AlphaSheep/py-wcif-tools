@@ -1,10 +1,9 @@
+from typing import Callable, ClassVar
 import json
 import os
-from typing import Callable, ClassVar
 import webbrowser
 import logging
 from datetime import datetime, timedelta
-
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlsplit, parse_qsl
 

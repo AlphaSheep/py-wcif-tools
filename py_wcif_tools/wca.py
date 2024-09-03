@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import requests
+
 from py_wcif_tools.config import WCA_HOST
 from py_wcif_tools.auth import WcaAuthenticator
 from py_wcif_tools.models.wca import Person, Competition
@@ -36,7 +37,3 @@ def get_competitions_managed_by_me() -> list[Competition]:
 
     data = response.json()
     return [Competition(**competition) for competition in data]
-
-
-
-

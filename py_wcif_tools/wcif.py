@@ -1,10 +1,8 @@
 import json
-from tkinter import W
-from py_wcif_tools.auth import WcaAuthenticator
-from py_wcif_tools.config import WCA_HOST
-
 import requests
 
+from py_wcif_tools.auth import WcaAuthenticator
+from py_wcif_tools.config import WCA_HOST
 from py_wcif_tools.models.wcif import Competition
 
 

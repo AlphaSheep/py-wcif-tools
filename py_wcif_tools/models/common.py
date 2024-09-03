@@ -5,5 +5,4 @@ Gender: TypeAlias = Literal["m", "f", "o"]
 
 CountryCode: TypeAlias = str
 
-
 EventID: TypeAlias = str
