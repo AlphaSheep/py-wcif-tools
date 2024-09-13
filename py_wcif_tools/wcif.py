@@ -6,6 +6,16 @@ from py_wcif_tools.config import WCA_HOST
 from py_wcif_tools.models.wcif import Competition
 
 
+def load_wcif_from_file(filename: str) -> Competition:
+    with open(filename, "r") as f:
+        return Competition(**json.load(f))
+
+
+def save_wcif_to_file(filename: str, wcif: Competition) -> None:
+    with open(filename, "w") as f:
+        json.dump(wcif.model_dump(exclude_none=True), f)
+
+
 def get_wcif(competition_id: str) -> Competition:
     url = f"{WCA_HOST}/api/v0/competitions/{competition_id}/wcif"
 
