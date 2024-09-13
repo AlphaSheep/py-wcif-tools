@@ -3,7 +3,7 @@ from typing import Any, Literal, TypeAlias
 
 from pydantic import BaseModel
 
-from py_wcif_tools.models.common import CountryCode, Gender
+from py_wcif_tools.models.common import WcaID, CountryCode, Gender
 
 
 class Competition(BaseModel):
@@ -31,7 +31,7 @@ class Person(BaseModel):
     registrantId: int | None = None
     name: str
     wcaUserId: int
-    wcaId: str | None = None
+    wcaId: WcaID | None = None
     countryIso2: "CountryCode"
     gender: Gender
     birthDate: date | None = None
@@ -51,7 +51,7 @@ Role: TypeAlias = str
 
 class Registration(BaseModel):
     wcaRegistrationId: int
-    eventIds: list[str]
+    eventIds: list["EventID"]
     status: Literal["accepted", "pending", "deleted"]
     guests: int | None = None
     comments: str | None = None
@@ -83,7 +83,7 @@ AssignmentCode: TypeAlias = str
 
 
 class PersonalBest(BaseModel):
-    eventId: str
+    eventId: "EventID"
     best: "AttemptResult"
     type: Literal["single", "average"]
     worldRanking: int
@@ -92,11 +92,14 @@ class PersonalBest(BaseModel):
 
 
 class Event(BaseModel):
-    id: str
+    id: "EventID"
     rounds: list["Round"]
     competitorLimit: int | None = None
     qualification: "Qualification | None"
     extensions: list["Extension"]
+
+
+EventID: TypeAlias = str
 
 
 class Round(BaseModel):
@@ -134,8 +137,11 @@ AttemptResult: TypeAlias = int
 class Qualification(BaseModel):
     whenDate: date
     type: Literal["attemptResult", "ranking", "anyResult"]
-    resultType: Literal["single", "average"]
+    resultType: "SingleOrAverage"
     level: "AttemptResult | Ranking | None"
+
+
+SingleOrAverage: TypeAlias = Literal["single", "average"]
 
 
 class Result(BaseModel):

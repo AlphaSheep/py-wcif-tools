@@ -2,7 +2,7 @@ from datetime import datetime, date
 from typing import Any, Literal
 from pydantic import BaseModel
 
-from py_wcif_tools.models.common import EventID
+from py_wcif_tools.models.common import EventID, WcaID
 from py_wcif_tools.models.wcif import CountryCode
 
 
@@ -26,7 +26,7 @@ class Person(ModelWithClass):
     created_at: datetime
     updated_at: datetime
     name: str
-    wca_id: str
+    wca_id: WcaID
     gender: Literal["m", "f", "o"]
     country_iso2: CountryCode
     url: str
@@ -60,7 +60,7 @@ class TeamMembership(BaseModel):
     leader: bool
     senior_member: bool
     name: str
-    wca_id: str
+    wca_id: WcaID
     avatar: "TeamMemberAvatar"
 
 

@@ -3,6 +3,7 @@ import requests
 
 from py_wcif_tools.config import WCA_HOST
 from py_wcif_tools.auth import WcaAuthenticator
+from py_wcif_tools.models.common import WcaID
 from py_wcif_tools.models.wca import Person, Competition
 
 
@@ -16,7 +17,7 @@ def get_me(auth: WcaAuthenticator) -> Person:
     return Person(**data["me"])
 
 
-def get_user_by_wca_id(wca_id: str) -> Person:
+def get_user_by_wca_id(wca_id: WcaID) -> Person:
     url = f"{WCA_HOST}/api/v0/users/{wca_id}"
 
     auth = WcaAuthenticator.get_instance()
