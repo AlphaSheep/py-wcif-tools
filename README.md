@@ -37,13 +37,14 @@ competitions = get_competitions_managed_by_me()
 
 | Function | Description |
 | --- | --- |
-| `get_wcif(competition_id: str) -> Competition` | Get the WCIF data for a competition |
-| `get_public_wcif(competition_id: str) -> Competition` | Get the public WCIF data for a competition |
-| `patch_wcif(competition_id: str, wcif: Competition) -> None` | Patch the WCIF data for a competition |
 | `get_me() -> User` | Get information about the current user |
 | `get_competitions_managed_by_me() -> list[Competition]` | Get a list of competitions managed by the current user |
 | `get_user_by_wca_id(wca_id: str) -> User` | Get information about a user by their WCA ID |
-
+| `get_wcif(competition_id: str) -> Competition` | Get the WCIF data for a competition |
+| `get_public_wcif(competition_id: str) -> Competition` | Get the public WCIF data for a competition |
+| `patch_wcif(competition_id: str, wcif: Competition) -> None` | Patch the WCIF data for a competition |
+| `load_wcif_from_file(filename: str) -> Competition` | Load WCIF data from a file |
+| `save_wcif_to_file(filename: str, wcif: Competition) -> None` | Save WCIF data to a file |
 
 
 ## Contributing
