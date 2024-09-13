@@ -43,6 +43,14 @@ class Person(BaseModel):
     personalBests: list["PersonalBest"]
     extensions: list["Extension"]
 
+    def __hash__(self) -> int:
+        return self.wcaUserId
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Person):
+            return False
+        return self.wcaUserId == other.wcaUserId
+
 
 CurrencyCode: TypeAlias = str
 
