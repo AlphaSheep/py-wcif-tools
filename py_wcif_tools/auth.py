@@ -44,7 +44,7 @@ class _OAuthCallbackHandler(BaseHTTPRequestHandler):
 
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"Success! You can close this window.")
+        self.wfile.write(b"py-wcif-tools logged in successfully! You can close this window.")
 
 
 class WcaAuthenticator:
