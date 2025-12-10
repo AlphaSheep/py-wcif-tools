@@ -112,7 +112,7 @@ EventID: TypeAlias = str
 
 class Round(BaseModel):
     id: str
-    format: Literal["1", "2", "3", "a", "m"]
+    format: Literal["1", "2", "3", "5", "a", "m"]
     timeLimit: "TimeLimit | None"
     cutoff: "Cutoff | None"
     advancementCondition: "AdvancementCondition | None"
